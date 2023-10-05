@@ -1,0 +1,15 @@
+# Disable all experiments related services
+systemctl -q disable chelsio-coprocessor
+systemctl -q disable chelsio-coprocessor-ct-100
+systemctl -q disable chelsio-coprocessor-ct-25
+systemctl -q disable chelsio-coprocessor-ct-5
+systemctl -q disable chelsio-coprocessor-ct-50
+systemctl -q disable chelsio-inline
+systemctl -q disable chelsio-inline-ct-100
+systemctl -q disable chelsio-inline-ct-25
+systemctl -q disable chelsio-inline-ct-5
+systemctl -q disable chelsio-inline-ct-50
+
+# ...
+# update with your needs
+# ...

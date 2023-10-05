@@ -1,0 +1,13 @@
+[Unit]
+Description=Chelsio Inline
+After=syslog.target network-online.target remote-fs.target nss-lookup.target docker.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/opt/chelsio-experiments/switch_modes.sh inline
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
