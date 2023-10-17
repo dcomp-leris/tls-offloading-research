@@ -36,12 +36,14 @@ def bar_plot(ax, data, colors=None, total_width=0.8, single_width=1, legend=True
     n_bars = len(data)
     bar_width = total_width / n_bars
     bars = []
+    hatches = [' ', '.', '\\', 'x', '-', '+', '|', 'o', 'O', '.', '*']
 
     for i, (name, values) in enumerate(data.items()):
         x_offset = (i - n_bars / 2) * bar_width + bar_width / 2
 
         for x, y in enumerate(values):
-            bar = ax.bar(x + x_offset, y, width=bar_width * single_width, color=colors[i % len(colors)], edgecolor='gray')
+            bar = ax.bar(x + x_offset, y, width=bar_width * single_width, color=colors[i % len(colors)], edgecolor='white', hatch=hatches[i % len(hatches)], zorder=99)
+            ax.bar(x + x_offset, y, width=bar_width * single_width, color='none', edgecolor='gray', zorder=100)
             if label:
                 ax.bar_label(bar, label_type='center', fmt=fmt, color="White", fontweight="bold")
 
